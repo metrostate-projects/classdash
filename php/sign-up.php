@@ -10,7 +10,7 @@
 
 <body>
     <nav>
-        <a href="../index.html">Home</a>
+        <a href="../index.php">Home</a>
         <a href="">Food Menu</a>
         <a href="">Shopping Cart</a>
         <h2>Class Dash</h2>

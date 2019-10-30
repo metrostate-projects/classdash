@@ -13,6 +13,7 @@
         <a href="../index.php">Home</a>
         <a href="food-menu.php">Food Menu</a>
         <a href="">Shopping Cart</a>
+        <h2 class="logo">Class Dash</h2>
     </nav>
 
     <header>

@@ -26,28 +26,66 @@
                 <img class="food-img" src="../images/banana.jpg">
                 <p class="food-name">Banana</p>
                 <p class="food-price">$4.95</p>
-                <button>Add to Cart</button>
+                <button class="add-btn">Add to Cart</button>
             </div>
 
             <div class="item-wrapper">
                 <img class="food-img" src="../images/banana.jpg">
                 <p class="food-name">Banana</p>
                 <p class="food-price">$4.95</p>
-                <button>Add to Cart</button>
+                <button class="add-btn">Add to Cart</button>
             </div>
 
             <div class="item-wrapper">
                 <img class="food-img" src="../images/banana.jpg">
                 <p class="food-name">Banana</p>
                 <p class="food-price">$4.95</p>
-                <button>Add to Cart</button>
+                <button class="add-btn">Add to Cart</button>
             </div>
         </div>
         <div class="food-row">
+            <div class="item-wrapper">
+                <img class="food-img" src="../images/banana.jpg">
+                <p class="food-name">Banana</p>
+                <p class="food-price">$4.95</p>
+                <button class="add-btn">Add to Cart</button>
+            </div>
 
+            <div class="item-wrapper">
+                <img class="food-img" src="../images/banana.jpg">
+                <p class="food-name">Banana</p>
+                <p class="food-price">$4.95</p>
+                <button class="add-btn">Add to Cart</button>
+            </div>
+
+            <div class="item-wrapper">
+                <img class="food-img" src="../images/banana.jpg">
+                <p class="food-name">Banana</p>
+                <p class="food-price">$4.95</p>
+                <button class="add-btn">Add to Cart</button>
+            </div>
         </div>
         <div class="food-row">
+            <div class="item-wrapper">
+                <img class="food-img" src="../images/banana.jpg">
+                <p class="food-name">Banana</p>
+                <p class="food-price">$4.95</p>
+                <button class="add-btn">Add to Cart</button>
+            </div>
 
+            <div class="item-wrapper">
+                <img class="food-img" src="../images/banana.jpg">
+                <p class="food-name">Banana</p>
+                <p class="food-price">$4.95</p>
+                <button class="add-btn">Add to Cart</button>
+            </div>
+
+            <div class="item-wrapper">
+                <img class="food-img" src="../images/banana.jpg">
+                <p class="food-name">Banana</p>
+                <p class="food-price">$4.95</p>
+                <button class="add-btn">Add to Cart</button>
+            </div>
         </div>
     </div>
 

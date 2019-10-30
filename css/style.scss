@@ -108,3 +108,35 @@ form {
 
     margin: 4rem;
 }
+
+.food-menu {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    background: lightblue;
+}
+
+.food-row {
+    display: flex;
+    flex-direction: row; 
+
+    background: grey;
+
+    margin: 0 auto;
+}
+
+.item-wrapper {
+    background: lightgreen;
+
+    width: 20rem;
+    height: 20rem;
+
+    text-align: center;
+}
+
+.food-img {
+    width: 5rem;
+    height: 5rem;
+}

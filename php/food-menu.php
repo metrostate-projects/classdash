@@ -20,7 +20,36 @@
         <h1>Food Menu</h1>
     </header>
 
+    <div class="food-menu">
+        <div class="food-row">
+            <div class="item-wrapper">
+                <img class="food-img" src="../images/banana.jpg">
+                <p class="food-name">Banana</p>
+                <p class="food-price">$4.95</p>
+                <button>Add to Cart</button>
+            </div>
 
+            <div class="item-wrapper">
+                <img class="food-img" src="../images/banana.jpg">
+                <p class="food-name">Banana</p>
+                <p class="food-price">$4.95</p>
+                <button>Add to Cart</button>
+            </div>
+
+            <div class="item-wrapper">
+                <img class="food-img" src="../images/banana.jpg">
+                <p class="food-name">Banana</p>
+                <p class="food-price">$4.95</p>
+                <button>Add to Cart</button>
+            </div>
+        </div>
+        <div class="food-row">
+
+        </div>
+        <div class="food-row">
+
+        </div>
+    </div>
 
 </body>
 

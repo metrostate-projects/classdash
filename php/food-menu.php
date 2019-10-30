@@ -13,17 +13,17 @@
         <a href="../index.php">Home</a>
         <a href="food-menu.php">Food Menu</a>
         <a href="">Shopping Cart</a>
+        <h2>Class Dash</h2>
     </nav>
 
     <header>
-        <h1>Sign Up Successful!</h1>
+        <h1>Food Menu</h1>
     </header>
 
-    <p class="sign-up-thanks">Thank you for signing up! Click the button below to view the menu and start ordering! </p>
 
-    <div class="buttons-container">
-        <a href="food-menu.php">Food Menu</a>
-    </div>
+
 </body>
+
+
 
 </html>

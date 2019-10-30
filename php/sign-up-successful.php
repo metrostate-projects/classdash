@@ -10,7 +10,7 @@
 
 <body>
     <nav>
-        <a href="index.html">Home</a>
+        <a href="index.php">Home</a>
         <a href="">Food Menu</a>
         <a href="">Shopping Cart</a>
     </nav>
@@ -27,8 +27,8 @@
 
 
     <div class="buttons-container">
-        <a href="pages/login.html">Login</a>
-        <a href="pages/sign-up.html">Sign Up</a>
+        <a href="php/login.php">Login</a>
+        <a href="php/sign-up.php">Sign Up</a>
     </div>
 </body>
 

@@ -11,20 +11,22 @@
 <body>
     <nav>
         <a href="../index.php">Home</a>
-        <a href="food-menu.php">Food Menu</a>
+        <a href="../php/food-menu.php">Food Menu</a>
         <a href="cart.php">Shopping Cart</a>
         <h2 class="logo">Class Dash</h2>
     </nav>
 
     <header>
-        <h1>Sign Up Successful!</h1>
+        <h1>Shopping Cart</h1>
     </header>
 
-    <p class="sign-up-thanks">Thank you for signing up! Click the button below to view the menu and start ordering! </p>
 
-    <div class="buttons-container">
-        <a href="food-menu.php">Food Menu</a>
+    <div class="checkout-wrapper">
+        <button type="submit" class="submit-btn">Checkout</button>
     </div>
+
 </body>
+
+
 
 </html>

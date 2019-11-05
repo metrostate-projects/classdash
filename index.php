@@ -12,7 +12,7 @@
     <nav>
         <a href="../index.php">Home</a>
         <a href="php/food-menu.php">Food Menu</a>
-        <a href="">Shopping Cart</a>
+        <a href="php/cart.php">Shopping Cart</a>
     </nav>
 
     <header>

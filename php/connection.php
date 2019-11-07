@@ -1,12 +1,4 @@
 <?php
-         $dbhost = 'mysql.developertony.com';
-         $dbuser = 'ics370root';
-         $dbpass = 'metrostate';
-         $conn = mysql_connect($dbhost, $dbuser, $dbpass);
-         
-         if(! $conn ) {
-            die('Could not connect: ' . mysql_error());
-         }
-         echo 'Connected successfully';
-         mysql_close($conn);
-      ?>
+$db = mysqli_connect("mysql.developertony.com", "ics370root", "metrostate", "ics370") or die ("USERNAME OR PASSWORD INCORRECT");
+
+?>

@@ -17,11 +17,11 @@ if(isset($_POST['submit'])) {
 	if($username == $dbUserName && $password == $dbPassword) {
 		$_SESSION['username'] = $username;
 		$_SESSION['id'] = $userId;
-		header('Location: user.php');
+		header('Location: food-menu.php');
 	}
 	else {
-		echo "<b><i>Incorrect credentials</i><b>";
-
+		$message = "Username and/or Password incorrect.\\nTry again.";
+  echo "<script type='text/javascript'>alert('$message');</script>";
 	}
 }
 
@@ -55,23 +55,22 @@ if(isset($_POST['submit'])) {
     </div>
 
 
-    <form action="" method="POST">
+    <form method="POST" action="login.php">
         <div class="form-sections-wrapper">
             <div class="form-section">
                 <label for="username">Username:
-                    <input class="form-input" type="text" name="username">
+                    <input class="form-input" type="text" name="username" required>
                 </label>
             </div>
 
             <div class="form-section">
                 <label for="password">Password:
-                    <input class="form-input" type="password" name="password">
+                    <input class="form-input" type="password" name="password" required>
                 </label>
             </div>
         </div>
 
-
-        <button type="submit" class="submit-btn">Submit</button>
+        <input type="submit" name="submit" value="Login" class="submit-btn">
 
     </form>
 </body>

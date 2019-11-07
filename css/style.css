@@ -44,7 +44,7 @@ nav a {
 .logo {
   float: right;
   margin-right: 1rem;
-  background: transparent;
+  background-color: rgb(179, 179, 179);
 }
 
 .buttons-container {
@@ -80,7 +80,7 @@ form {
 .form-sections-wrapper {
   width: 35rem;
   margin: 0 auto;
-  padding-right: 10rem;
+
   text-align: right;
 }
 
@@ -130,7 +130,7 @@ form {
 
 .item-wrapper {
   width: 20rem;
-  height: 23rem;
+  height: 30rem;
 
   text-align: center;
 

@@ -1,28 +1,27 @@
 <?php
 session_start();
 
-if(isset($_POST['submit'])) {
-	include_once('connection.php');
-	$username = strip_tags($_POST['username']);
-	$password = strip_tags($_POST['password']);
+if (isset($_POST['submit'])) {
+    include_once('connection.php');
+    $username = strip_tags($_POST['username']);
+    $password = strip_tags($_POST['password']);
 
-	$sql = "SELECT id,username,password FROM members where username = '$username' LIMIT 1";
-	$query = mysqli_query($db, $sql);
-	if($query) {
-		$row = mysqli_fetch_row($query);
-		$userId= $row[0];
-		$dbUserName = $row[1];
-		$dbPassword = $row[2];
-	}
-	if($username == $dbUserName && $password == $dbPassword) {
-		$_SESSION['username'] = $username;
-		$_SESSION['id'] = $userId;
-		header('Location: food-menu.php');
-	}
-	else {
-		$message = "Username and/or Password incorrect.\\nTry again.";
-  echo "<script type='text/javascript'>alert('$message');</script>";
-	}
+    $sql = "SELECT id,username,password FROM members where username = '$username' LIMIT 1";
+    $query = mysqli_query($db, $sql);
+    if ($query) {
+        $row = mysqli_fetch_row($query);
+        $userId = $row[0];
+        $dbUserName = $row[1];
+        $dbPassword = $row[2];
+    }
+    if ($username == $dbUserName && $password == $dbPassword) {
+        $_SESSION['username'] = $username;
+        $_SESSION['id'] = $userId;
+        header('Location: food-menu.php');
+    } else {
+        $message = "Username and/or Password incorrect.\\nTry again.";
+        echo "<script type='text/javascript'>alert('$message');</script>";
+    }
 }
 
 ?>
@@ -32,6 +31,8 @@ if(isset($_POST['submit'])) {
 <html xml:lang="en" lang="en" class="html">
 
 <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <link href="../css/style.css" rel="stylesheet" type="text/css" />
     <script src="../javascript/app.js"></script>
@@ -55,18 +56,14 @@ if(isset($_POST['submit'])) {
     </div>
 
 
-    <form method="POST" action="login.php">
+    <form method="POST" action="login.php" class="login-form">
         <div class="form-sections-wrapper">
             <div class="form-section">
-                <label for="username">Username:
-                    <input class="form-input" type="text" name="username" required>
-                </label>
+                <input class="form-input" type="text" name="username" required placeholder="Username">
             </div>
 
             <div class="form-section">
-                <label for="password">Password:
-                    <input class="form-input" type="password" name="password" required>
-                </label>
+                <input class="form-input" type="password" name="password" required placeholder="Enter password">
             </div>
         </div>
 

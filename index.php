@@ -3,9 +3,6 @@ session_start();
 if (isset($_SESSION['id'])) {
     $userId = $_SESSION['id'];
     $username = $_SESSION['username'];
-} else {
-    header('Location: index.php');
-    die();
 }
 ?>
 
@@ -28,7 +25,7 @@ if (isset($_SESSION['id'])) {
         <a href="php/food-menu.php">Food Menu</a>
         <a href="php/cart.php">Shopping Cart</a>
         <h2 class="logo">Logged in as: <?php echo $username; ?> </h2>
-        <form action="logout.php">
+        <form action="php/logout.php">
             <input class="logo" type="submit" name="logout" value="Logout">
         </form>
     </nav>

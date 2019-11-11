@@ -42,7 +42,6 @@ if (isset($_POST['submit'])) {
     <nav>
         <a href="../index.php">Home</a>
         <a href="food-menu.php">Food Menu</a>
-        <a href="cart.php">Shopping Cart</a>
         <h2 class="logo">Logged in as: <?php echo $username; ?> </h2>
         <form action="logout.php">
             <input class="logo" type="submit" name="logout" value="Logout">

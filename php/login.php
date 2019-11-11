@@ -43,7 +43,6 @@ if (isset($_POST['submit'])) {
     <nav>
         <a href="../index.php">Home</a>
         <a href="../php/food-menu.php">Food Menu</a>
-        <a href="../php/cart.php">Shopping Cart</a>
         <h2 class="logo">Class Dash</h2>
     </nav>
 

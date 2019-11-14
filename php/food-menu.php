@@ -76,7 +76,6 @@ if (isset($_GET["action"])){
     </header>
 
     <div class="container" style="width: 65%">
-        <h2>Shopping Cart</h2>
         <?php
             $query = "SELECT * FROM product ORDER BY id ASC ";
             $result = mysqli_query($con,$query);

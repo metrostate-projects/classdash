@@ -6,39 +6,13 @@ if (isset($_SESSION['id'])) {
     $username = $_SESSION['username'];
 }
 
-if (isset($_POST["add"])) {
-    if (isset($_SESSION["cart"])) {
-        $item_array_id = array_column($_SESSION["cart"], "food_id");
-        if (!in_array($_GET["id"], $item_array_id)) {
-            $count = count($_SESSION["cart"]);
-            $item_array = array(
-                'food_id' => $_GET["id"],
-                'item_name' => $_POST["hidden_name"],
-                'food_price' => $_POST["hidden_price"],
-                'item_quantity' => $_POST["quantity"],
-            );
-            $_SESSION["cart"][$count] = $item_array;
-            echo '<script>window.location="food-menu.php"</script>';
-        } else {
-            echo '<script>alert("Item is already Added to Cart")</script>';
-            echo '<script>window.location="food-menu.php"</script>';
-        }
-    } else {
-        $item_array = array(
-            'food_id' => $_GET["id"],
-            'item_name' => $_POST["hidden_name"],
-            'food_price' => $_POST["hidden_price"],
-            'item_quantity' => $_POST["quantity"],
-        );
-        $_SESSION["cart"][0] = $item_array;
-    }
-}
 
 if (isset($_GET["action"])) {
     if ($_GET["action"] == "delete") {
         foreach ($_SESSION["cart"] as $keys => $value) {
             if ($value["food_id"] == $_GET["id"]) {
                 unset($_SESSION["cart"][$keys]);
+                echo '<script>alert("food has been Removed...!")</script>';
                 echo '<script>window.location="food-menu.php"</script>';
             }
         }
@@ -47,9 +21,15 @@ if (isset($_GET["action"])) {
 
 if (isset($_SESSION['id'])) {
     $username = $_SESSION['username'];
-}
-else {
+} else {
     $username = 'Guest';
+}
+
+if (isset($_POST['submit'])) {
+    include_once('connection.php');
+    $roomNumber = strip_tags($_POST['submit']);
+
+    echo "<script type='text/javascript'>alert('Your order has been received!');</script>";
 }
 ?>
 
@@ -74,10 +54,10 @@ else {
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="../index.php">Home</a>
+                    <a class="nav-link" href="https://developertony.com">Home</a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="food-menu.php">Menu<span class="sr-only">(current)</span></a>
+                <li class="nav-item">
+                    <a class="nav-link" href="food-menu.php">Menu</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="admin-login.php">Admin</a>
@@ -85,7 +65,7 @@ else {
             </ul>
         </div>
         <span class="navbar-text">
-            Hello, <?php echo $username; ?>
+            Hello, <?php echo $roomNumber; ?>
             <form class="form-inline" action="logout.php">
                 <input class="btn btn-sm btn-outline-secondary" type="submit" name="logout" value="Logout">
             </form>
@@ -93,38 +73,10 @@ else {
     </nav>
 
     <header>
-        <h1>Menu</h1>
+        <h1>Checkout</h1>
     </header>
 
-    <div class="container" style="width: 65%">
-        <?php
-        $query = "SELECT * FROM food ORDER BY id ASC ";
-        $result = mysqli_query($con, $query);
-        if (mysqli_num_rows($result) > 0) {
-
-            while ($row = mysqli_fetch_array($result)) {
-
-                ?>
-                <div class="col-md-3">
-
-                    <form method="post" action="food-menu.php?action=add&id=<?php echo $row["id"]; ?>">
-
-                        <div class="food">
-                            <img src="<?php echo $row["image"]; ?>" class="img-responsive">
-                            <h5 class="text-info"><?php echo $row["fname"]; ?></h5>
-                            <h5 class="text"><?php echo $row["price"]; ?></h5>
-                            <input type="text" name="quantity" class="form-control" value="1">
-                            <input type="hidden" name="hidden_name" value="<?php echo $row["fname"]; ?>">
-                            <input type="hidden" name="hidden_price" value="<?php echo $row["price"]; ?>">
-                            <input type="submit" name="add" style="margin-top: 5px;" class="btn btn-primary" value="Add to Cart">
-                        </div>
-                    </form>
-                </div>
-        <?php
-            }
-        }
-        ?>
-
+    <div class='container' style="width: 65%">
         <div style="clear: both"></div>
         <h3 class="title2">Shopping Cart Details</h3>
         <div class="table-responsive">
@@ -165,8 +117,26 @@ else {
                 ?>
             </table>
         </div>
-        <a class="btn btn-success" href="checkout.php">Checkout</a>
+
+        <div class='container' style="width: 40%">
+
+            <form method="POST" action="checkout.php">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Class Room #</label>
+                    <input type="text" class="form-control" name="submit" placeholder="" required>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Special Instructions</label>
+                    <input type="text" class="form-control" name="submit" placeholder="">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Order</button>
+            </form>
+        </div>
+
     </div>
+
+
+
 
 </body>
 

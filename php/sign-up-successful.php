@@ -6,7 +6,7 @@ if (isset($_POST['submit'])) {
     $username = strip_tags($_POST['username']);
     $password = strip_tags($_POST['password']);
 
-    $sql = "SELECT id,username,password FROM members where username = '$username' LIMIT 1";
+    $sql = "SELECT id,username,password FROM users where username = '$username' LIMIT 1";
     $query = mysqli_query($db, $sql);
     if ($query) {
         $row = mysqli_fetch_row($query);
@@ -24,6 +24,13 @@ if (isset($_POST['submit'])) {
     }
 }
 
+if (isset($_SESSION['id'])) {
+    $username = $_SESSION['username'];
+}
+else {
+    $username = 'Guest';
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -31,6 +38,7 @@ if (isset($_POST['submit'])) {
 
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <link href="../css/style.css" rel="stylesheet" type="text/css" />
@@ -39,13 +47,29 @@ if (isset($_POST['submit'])) {
 </head>
 
 <body>
-    <nav>
-        <a href="../index.php">Home</a>
-        <a href="food-menu.php">Food Menu</a>
-        <h2 class="logo">Logged in as: <?php echo $username; ?> </h2>
-        <form action="logout.php">
-            <input class="logo" type="submit" name="logout" value="Logout">
-        </form>
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="https://developertony.com">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="food-menu.php">Menu</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="admin-login.php">Admin</a>
+                </li>
+            </ul>
+        </div>
+        <span class="navbar-text">
+            Hello, <?php echo $username; ?>
+            <form class="form-inline" action="logout.php">
+                <input class="btn btn-sm btn-outline-secondary" type="submit" name="logout" value="Logout">
+            </form>
+        </span>
     </nav>
 
     <header>
@@ -55,18 +79,18 @@ if (isset($_POST['submit'])) {
     <p class="sign-up-thanks">Thank you for signing up! Log in with your new credentials and start ordering! </p>
 
     <form method="POST" action="sign-up-successful.php" class="login-form">
-    <h2>Login: </h2>
+        <h2>Login: </h2>
         <div class="form-sections-wrapper">
             <div class="form-section">
-                <input class="form-input" type="text" name="username" required placeholder="Username">
+                <input class="form-control" type="text" name="username" required placeholder="Username">
             </div>
 
             <div class="form-section">
-                <input class="form-input" type="password" name="password" required placeholder="Enter password">
+                <input class="form-control" type="password" name="password" required placeholder="Enter password">
             </div>
         </div>
 
-        <input type="submit" name="submit" value="Login" class="submit-btn">
+        <input type="submit" name="submit" value="Login" class="btn btn-primary btn-lg">
 
     </form>
 </body>

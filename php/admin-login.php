@@ -6,7 +6,7 @@ if (isset($_POST['submit'])) {
     $username = strip_tags($_POST['username']);
     $password = strip_tags($_POST['password']);
 
-    $sql = "SELECT id,username,password FROM users where username = '$username' LIMIT 1";
+    $sql = "SELECT id,username,password FROM admins where username = '$username' LIMIT 1";
     $query = mysqli_query($db, $sql);
     if ($query) {
         $row = mysqli_fetch_row($query);
@@ -17,7 +17,7 @@ if (isset($_POST['submit'])) {
     if ($username == $dbUserName && $password == $dbPassword) {
         $_SESSION['username'] = $username;
         $_SESSION['id'] = $userId;
-        header('Location: food-menu.php');
+        header('Location: admin.php');
     } else {
         $message = "Username and/or Password incorrect.\\nTry again.";
         echo "<script type='text/javascript'>alert('$message');</script>";
@@ -74,10 +74,10 @@ else {
     </nav>
 
     <header>
-        <h1>Login</h1>
+        <h1>ADMIN LOGIN</h1>
     </header>
 
-    <form method="POST" action="login.php" class="login-form">
+    <form method="POST" action="admin-login.php" class="login-form">
         <div class="form-sections-wrapper">
             <div class="form-section">
                 <input class="form-control" type="text" name="username" required placeholder="Username">

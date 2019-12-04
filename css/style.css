@@ -158,3 +158,8 @@ form {
 .add-btn:hover {
   cursor: pointer;
 }
+
+.navbar-custom {
+  color: #FFFFFF;
+  background-color: #68a5d1;
+}
